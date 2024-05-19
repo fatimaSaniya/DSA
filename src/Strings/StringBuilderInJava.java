@@ -24,5 +24,11 @@ public class StringBuilderInJava {
         //setChatAt
         sb.setCharAt(2,'a');
         System.out.println(sb);
+
+        //append
+        sb.append('*');
+        System.out.println(sb);
+        sb.append(10);
+        System.out.println(sb);
     }
 }
