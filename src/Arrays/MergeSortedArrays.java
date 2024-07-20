@@ -2,33 +2,36 @@ package Arrays;
 
 public class MergeSortedArrays {
     public static void main(String[] args) {
-        int[] a = {1,3,5,7};
-        int[] b = {2,4,6,8};
-        int[] c = new int[8];
-        int i=3, j=3, k=7;
-        while(i>0 && j>0){
-            if(a[i]>b[j]){
-                c[k]= a[i];
-                i--;
+        int arr1[] = {1, 3, 5, 7};
+        int n1 = arr1.length;
+        int arr2[] = {2, 4, 6, 8};
+        int n2 = arr2.length;
+        int arr3[] = new int[n1 + n2];
+        arr3 = mergeArrays(arr1, arr2, n1, n2, arr3);
+        System.out.print("Array: ");
+        for (int i = 0; i < n1 + n2; i++)
+            System.out.print(arr3[i] + " ");
+    }
+    public static int[] mergeArrays(int[] arr1, int[] arr2, int n1, int n2, int[] arr3) {
+        int i = 0;
+        int j = 0;
+        int k = 0;
+        while (i < n1) arr3[k++] = arr1[i++];
+        while (j < n2) arr3[k++] = arr2[j++];
+        arr3 = Sort(arr3);
+        return arr3;
+    }
+    public static int[] Sort(int[] arr) {
+        int n = arr.length;
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = 0; j < n - i - 1; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
             }
-            else{
-                c[k]= b[j];
-                j--;
-            }k--;
         }
-        if (i>0){
-            while (j>0){
-                c[k] = b[j];
-                j--;k--;
-            }
-        }
-        if (j>0){
-            while (i>0){
-                c[k] = a[i];
-                i--;k--;
-            }
-        }
-        for (int m = 0; m<8; m++)
-            System.out.print(c[m] + " ");
+        return arr;
     }
 }
