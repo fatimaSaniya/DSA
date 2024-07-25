@@ -5,12 +5,10 @@ import java.util.HashSet;
 
 public class DuplicateAndIntersectionOfStrings {
     public static void main(String[] args) {
-        String s1 = "SaniyaShivi";
-        String s2 = "SaurabhSneha";
+        String s1 = "Saniya";
+        String s2 = "Sneha";
         HashSet<String> str = new HashSet<>();
         HashSet<String> str1 = new HashSet<>();
-        String[] s3 = new String[10];
-        String[] s4 = new String[10];
         for (int i = 0; i < s1.length(); i++) {
             for (int j = i + 1; j < s1.length(); j++) {
                 if (s1.charAt(i) == s1.charAt(j)) {
